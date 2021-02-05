@@ -10,8 +10,7 @@ public class RegistrationOfUser {
     private static final String passwordEightCharacter = "^[a-zA-Z0-9]{8,}";
     private static final String passwordUpperCase = "^(?=.*?[A-Z][a-zA-Z0-9]{8,}";
     private static final String passwordAtLeastOneNumber= "^(?=.*?[A-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}";
-
-
+    private static final String passwordAtLeastOneSpecialCharacter = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&+=])(?=\\S+$).{8,}";
 
     public boolean validateFirstName(String firastName){
         Pattern pattern= Pattern.compile(firastName);
@@ -44,5 +43,10 @@ public class RegistrationOfUser {
     public boolean validatePasswordCheckThree(String passwordAtLeastOneNumber){
         Pattern pattern = Pattern.compile(passwordAtLeastOneNumber);
         return pattern.matcher(passwordAtLeastOneNumber).matches();
+    }
+    public boolean validatePasswordCheckFour(String passwordAtLeastOneSpecialCharacter){
+        Pattern pattern = Pattern.compile(passwordAtLeastOneSpecialCharacter);
+        return pattern.matcher(passwordAtLeastOneSpecialCharacter).matches();
+
     }
 }
