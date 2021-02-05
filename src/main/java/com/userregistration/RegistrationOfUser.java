@@ -9,6 +9,8 @@ public class RegistrationOfUser {
     private static final String phoneNumber = "^([0]+||[91]+) [0-9]{10}$";
     private static final String passwordEightCharacter = "^[a-zA-Z0-9]{8,}";
     private static final String passwordUpperCase = "^(?=.*?[A-Z][a-zA-Z0-9]{8,}";
+    private static final String passwordAtLeastOneNumber= "^(?=.*?[A-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}";
+
 
 
     public boolean validateFirstName(String firastName){
@@ -37,5 +39,10 @@ public class RegistrationOfUser {
     public boolean validatePasswordCheckTwo(String passwordUpperCase){
         Pattern pattern = Pattern.compile(passwordUpperCase);
         return pattern.matcher(passwordUpperCase).matches();
+    }
+
+    public boolean validatePasswordCheckThree(String passwordAtLeastOneNumber){
+        Pattern pattern = Pattern.compile(passwordAtLeastOneNumber);
+        return pattern.matcher(passwordAtLeastOneNumber).matches();
     }
 }
