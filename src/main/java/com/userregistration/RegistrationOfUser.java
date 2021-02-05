@@ -6,6 +6,7 @@ public class RegistrationOfUser {
     private static final String firastName = "^[A-Z]{1}[a-z]{2,}$";
     private static final String lastName = "^[A-Z]{1}[a-z]{2,}$";
     private static final String email = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$";
+    private static final String phoneNumber = "^([0]+||[91]+) [0-9]{10}$";
 
     public boolean validateFirstName(String firastName){
         Pattern pattern= Pattern.compile(firastName);
@@ -20,5 +21,10 @@ public class RegistrationOfUser {
     public boolean validateEmail(String email){
         Pattern pattern = Pattern.compile(email);
         return pattern.matcher(email).matches();
+    }
+
+    public boolean validatePhoneNumber(String phoneNumber){
+        Pattern pattern = Pattern.compile(phoneNumber);
+        return pattern.matcher(phoneNumber).matches();
     }
 }
