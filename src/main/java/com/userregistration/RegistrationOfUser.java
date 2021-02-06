@@ -49,4 +49,11 @@ public class RegistrationOfUser {
         return pattern.matcher(passwordAtLeastOneSpecialCharacter).matches();
 
     }
+    public String analyseMood(String message){
+        if (message.contains("SAD"))
+            return "SAD";
+        else
+            return "HAPPY";
+
+    }
 }
