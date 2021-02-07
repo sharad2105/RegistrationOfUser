@@ -42,8 +42,8 @@ public class EmailValidateMultipleEntry {
     }
     @Test
     public void email(){
-        RegistrationOfUser validator = new RegistrationOfUser();
-        boolean result = validator.validateEmail(this.emailToTest);
+        RegistrationOfUser validationofUser = new RegistrationOfUser("HAPPy");
+        boolean result = validationofUser.validateEmail(this.emailToTest);
         Assert.assertEquals(this.expectedResult, result);
 
     }

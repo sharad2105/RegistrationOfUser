@@ -11,7 +11,11 @@ public class RegistrationOfUser {
     private static final String passwordUpperCase = "^(?=.*?[A-Z][a-zA-Z0-9]{8,}";
     private static final String passwordAtLeastOneNumber= "^(?=.*?[A-Z])(?=.*?[0-9])[a-zA-Z0-9]{8,}";
     private static final String passwordAtLeastOneSpecialCharacter = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%&+=])(?=\\S+$).{8,}";
+    private final String message;
 
+    public  RegistrationOfUser(String message){
+        this.message = message;
+    }
     public boolean validateFirstName(String firastName){
         Pattern pattern= Pattern.compile(firastName);
         return pattern.matcher(firastName).matches();
@@ -49,11 +53,15 @@ public class RegistrationOfUser {
         return pattern.matcher(passwordAtLeastOneSpecialCharacter).matches();
 
     }
-    public String analyseMood(String message){
-        if (message.contains("SAD"))
-            return "SAD";
-        else
-            return "HAPPY";
-
+    public String analyseMood(String message) throws RegistrationOfUserException {
+        try {
+            if (message.contains("SAD"))
+               throw new RegistrationOfUserException("Plese Enter a Proper message");
+            else
+                return "HAPPY";
+        }catch (RegistrationOfUserException e){
+            System.out.println(e);
+        }
+        return message;
     }
 }
